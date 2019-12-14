@@ -33,7 +33,7 @@ const CountryCard = ({ country }) => {
             margin: 0 0 0px 0;
           }
           p {
-            margin-top: 10px;
+            margin-top: 8px;
             margin-bottom: 0;
           }
           .country img {
@@ -41,7 +41,7 @@ const CountryCard = ({ country }) => {
             object-fit: cover;
           }
           .country-body {
-            padding: 20px 30px;
+            padding: 10px 25px 30px;
           }
         `}
       </style>

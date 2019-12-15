@@ -29,7 +29,7 @@ const Index = ({ initialCountries }) => {
 
   useEffect(() => {
     if (!countries.length) {
-      setErrorMessage("Sorry 😢. Country not found.");
+      setErrorMessage("Sorry 😔. Country not found.");
       return;
     }
     setErrorMessage("");
@@ -41,12 +41,27 @@ const Index = ({ initialCountries }) => {
     <div className="home">
       <div className="container">
         <div className="filter-container">
-          <input
-            placeholder="Search for a country"
-            type="text"
-            className="search-input"
-            onChange={e => setSearchValue(e.target.value)}
-          />
+          <div className="input-container">
+            {theme === "light" ? (
+              <img
+                src="/search-dark.svg"
+                alt="Search icon"
+                className="search-icon"
+              />
+            ) : (
+              <img
+                src="/search-white.svg"
+                alt="Search icon"
+                className="search-icon"
+              />
+            )}
+            <input
+              placeholder="Search for a country"
+              type="text"
+              className="search-input"
+              onChange={e => setSearchValue(e.target.value)}
+            />
+          </div>
         </div>
         <div className="country-list">
           {countries.map(country => (
@@ -69,7 +84,7 @@ const Index = ({ initialCountries }) => {
             margin-bottom: 40px;
           }
           .search-input {
-            padding: 20px 25px;
+            padding: 20px 38px;
             min-width: 500px;
             font-size: 16px;
             outline: none;
@@ -84,6 +99,15 @@ const Index = ({ initialCountries }) => {
               ? "hsl(200, 15%, 8%)"
               : "rgba(255,255,255,0.8)"};
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+          }
+          .input-container {
+            position: relative;
+          }
+          .search-icon {
+            width: 15px;
+            position: absolute;
+            top: 23px;
+            left: 15px;
           }
         `}
       </style>

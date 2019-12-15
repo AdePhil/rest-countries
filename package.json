@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "export": "next export",
-    "build": "npm run build && npm run export",
+    "build": "npm run build",
     "script": "next script"
   },
   "keywords": [],

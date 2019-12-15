@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "export": "next export",
-    "build": "npm run build",
+    "build": "next build",
+    "export": "next deploy",
+    "deploy": "npm run build && npm run export",
     "script": "next script"
   },
   "keywords": [],

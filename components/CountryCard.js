@@ -1,4 +1,7 @@
+import ThemeContext from "../context/theme";
+import { useContext } from "react";
 const CountryCard = ({ country }) => {
+  const { theme, setTheme } = useContext(ThemeContext);
   return (
     <div className="country">
       <img src={country.flag} alt="country's flag" />
@@ -20,7 +23,10 @@ const CountryCard = ({ country }) => {
       <style jsx>
         {`
           .country {
-            background-color: #fff;
+            background-color: inherit;
+            background-color: ${theme === "light"
+              ? "#fff"
+              : "hsl(209, 23%, 22%)"};
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
           }
           .label {
@@ -28,6 +34,9 @@ const CountryCard = ({ country }) => {
           }
           .info {
             color: hsl(200, 15%, 8%);
+            color: ${theme === "light"
+              ? "hsl(200, 15%, 8%)"
+              : "rgba(255,255,255,0.8)"};
           }
           h3 {
             margin: 0 0 0px 0;

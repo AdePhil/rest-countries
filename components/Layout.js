@@ -1,11 +1,26 @@
+import ThemeContext from "../context/theme";
+import { useContext } from "react";
 const Layout = props => {
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  const setThemeState = () => {
+    if (theme === "light") {
+      setTheme("dark");
+      return;
+    }
+    setTheme("light");
+  };
   return (
     <div>
       <header className="header">
         <div className="container header-container">
           <h2 className="heading">Where in the world</h2>
-          <button>
-            <img src="/moon.svg" alt="Moon icon" className="moon-icon" />
+          <button onClick={setThemeState}>
+            {theme === "light" ? (
+              <img src="/moon.svg" alt="Moon icon" className="moon-icon" />
+            ) : (
+              <img src="/moon-dark.svg" alt="Moon icon" className="moon-icon" />
+            )}
             <p>Dark Mode</p>
           </button>
         </div>
@@ -14,7 +29,9 @@ const Layout = props => {
       <style jsx>{`
         .header {
           box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.18);
-          background-color: #fff;
+          background-color: ${theme === "light"
+            ? "#fff"
+            : "hsl(209, 23%, 22%)"};
         }
         .header-container {
           display: flex;
@@ -22,6 +39,7 @@ const Layout = props => {
         }
         .heading {
           margin-right: auto;
+          color: inherit;
         }
         .moon-icon {
           width: 12px;
@@ -35,6 +53,8 @@ const Layout = props => {
           font-size: 300px;
           font-size: 14px;
           outline: none;
+          background-color: inherit;
+          color: inherit;
         }
       `}</style>
       <style jsx global>{`
@@ -47,7 +67,11 @@ const Layout = props => {
           font-weight: 300;
           margin: 0;
           min-height: 100vh;
-          background-color: hsl(0, 0%, 98%);
+          transition: color 300ms ease;
+          color: ${theme === "light" ? "#000" : "#fff"};
+          background-color: ${theme === "light"
+            ? " hsl(0, 0%, 98%);"
+            : "hsl(207, 26%, 17%);"};
         }
         img {
           width: 100%;

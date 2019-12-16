@@ -24,6 +24,7 @@ const CountryCard = ({ country }) => {
         {`
           .country {
             background-color: inherit;
+            transition: background-color 1s ease;
             background-color: ${theme === "light"
               ? "#fff"
               : "hsl(209, 23%, 22%)"};

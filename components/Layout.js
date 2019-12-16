@@ -14,14 +14,14 @@ const Layout = props => {
     <div>
       <header className="header">
         <div className="container header-container">
-          <h2 className="heading">Where in the world</h2>
+          <h2 className="heading">Where in the world?</h2>
           <button onClick={setThemeState}>
             {theme === "light" ? (
               <img src="/moon.svg" alt="Moon icon" className="moon-icon" />
             ) : (
               <img src="/moon-dark.svg" alt="Moon icon" className="moon-icon" />
             )}
-            <p>Dark Mode</p>
+            <p>{theme === "light" ? "Dark Mode" : "Light Mode"}</p>
           </button>
         </div>
       </header>
@@ -29,6 +29,7 @@ const Layout = props => {
       <style jsx>{`
         .header {
           box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.18);
+          transition: background-color 1s ease;
           background-color: ${theme === "light"
             ? "#fff"
             : "hsl(209, 23%, 22%)"};
@@ -67,7 +68,7 @@ const Layout = props => {
           font-weight: 300;
           margin: 0;
           min-height: 100vh;
-          transition: color 300ms ease;
+          transition: background-color 1s ease;
           color: ${theme === "light" ? "#000" : "#fff"};
           background-color: ${theme === "light"
             ? " hsl(0, 0%, 98%);"

@@ -1,30 +1,40 @@
-import ThemeContext from "../context/theme";
+import { ThemeContext } from "../context/theme";
+import Link from "next/link";
 import { useContext } from "react";
 const CountryCard = ({ country }) => {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
+  const { flag, population, name, region, capital } = country;
   return (
     <div className="country">
-      <img src={country.flag} alt="country's flag" />
-      <div className="country-body">
-        <h3>{country.name}</h3>
-        <p>
-          <span className="label">Population: </span>
-          <span className="info">{country.population}</span>
-        </p>
-        <p>
-          <span className="label">Region: </span>
-          <span className="info">{country.region}</span>
-        </p>
-        <p>
-          <span className="label">Capital: </span>
-          <span className="info">{country.capital}</span>
-        </p>
-      </div>
+      <Link href="/country/[name]" as={`/country/${name}`}>
+        <a>
+          <img src={flag} alt="country's flag" />
+          <div className="country-body">
+            <h3>{name}</h3>
+            <p>
+              <span className="label">Population: </span>
+              <span className="info">{population}</span>
+            </p>
+            <p>
+              <span className="label">Region: </span>
+              <span className="info">{region}</span>
+            </p>
+            <p>
+              <span className="label">Capital: </span>
+              <span className="info">{capital}</span>
+            </p>
+          </div>
+        </a>
+      </Link>
+
       <style jsx>
         {`
+          a {
+            color: inherit;
+            text-decoration: none;
+          }
           .country {
-            background-color: inherit;
-            transition: background-color 1s ease;
+            transition: background-color 1s ease-in-out;
             background-color: ${theme === "light"
               ? "#fff"
               : "hsl(209, 23%, 22%)"};
@@ -32,6 +42,7 @@ const CountryCard = ({ country }) => {
           }
           .label {
             font-weight: 500;
+            color: ${theme === "light" ? "#000" : "#fff"};
           }
           .info {
             color: hsl(200, 15%, 8%);

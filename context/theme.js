@@ -1,8 +1,17 @@
-import { createContext } from "react";
+import { createContext, useState, useEffect } from "react";
+import { fetchAllCountries } from "../api/country";
+import Cookie from "js-cookie";
+export const ThemeContext = createContext();
 
-const ThemeContext = createContext();
+export const useTheme = initialTheme => {
+  const [theme, setTheme] = useState(initialTheme);
+  const setThemeValue = value => {
+    setTheme(value);
+    Cookie.set("theme", value);
+  };
+  return [theme, setThemeValue];
+};
 
-export const ThemeProvider = ThemeContext.Provider;
-export const ThemeConsumer = ThemeContext.Consumer;
+const ThemeProvider = ThemeContext.Provider;
 
-export default ThemeContext;
+export default ThemeProvider;

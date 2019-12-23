@@ -1,14 +1,14 @@
-import ThemeContext from "../context/theme";
+import { ThemeContext } from "../context/theme";
 import { useContext } from "react";
 const Layout = props => {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme, setThemeValue } = useContext(ThemeContext);
 
   const setThemeState = () => {
     if (theme === "light") {
-      setTheme("dark");
+      setThemeValue("dark");
       return;
     }
-    setTheme("light");
+    setThemeValue("light");
   };
   return (
     <div>
@@ -29,7 +29,7 @@ const Layout = props => {
       <style jsx>{`
         .header {
           box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.18);
-          transition: background-color 1s ease;
+          transition: background-color 1s ease-in-out;
           background-color: ${theme === "light"
             ? "#fff"
             : "hsl(209, 23%, 22%)"};
@@ -68,7 +68,7 @@ const Layout = props => {
           font-weight: 300;
           margin: 0;
           min-height: 100vh;
-          transition: background-color 1s ease;
+          transition: background-color 1s ease-in-out;
           color: ${theme === "light" ? "#000" : "#fff"};
           background-color: ${theme === "light"
             ? " hsl(0, 0%, 98%);"

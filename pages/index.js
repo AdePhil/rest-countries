@@ -1,9 +1,8 @@
 import Layout from "../components/Layout.js";
-import fetch from "isomorphic-unfetch";
 import CountryCard from "../components/CountryCard";
 import { fetchAllCountries, fetchCountry } from "../api/country";
 import { useState, useEffect, useCallback, useContext } from "react";
-import ThemeContext from "../context/theme";
+import { ThemeContext } from "../context/theme";
 const Index = ({ initialCountries }) => {
   const [searchValue, setSearchValue] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -34,8 +33,6 @@ const Index = ({ initialCountries }) => {
     }
     setErrorMessage("");
   }, [countries]);
-
-  function getAllCountries() {}
 
   return (
     <div className="home">
@@ -90,7 +87,7 @@ const Index = ({ initialCountries }) => {
             outline: none;
             border: none;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-            transition: background-color 1s ease;
+            transition: background-color 1s ease-in-out;
             background-color: ${theme === "light"
               ? "#fff"
               : "hsl(209, 23%, 22%)"};

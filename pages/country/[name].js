@@ -1,4 +1,4 @@
-import { ThemeContext } from "../theme";
+import { ThemeContext } from "../../context/theme";
 import { fetchCountry } from "../../api/country";
 import Router from "next/router";
 import { useContext } from "react";

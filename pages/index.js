@@ -82,7 +82,8 @@ const Index = ({ initialCountries }) => {
           }
           .search-input {
             padding: 20px 38px;
-            min-width: 500px;
+            width: 100%;
+            max-width: 500px;
             font-size: 16px;
             outline: none;
             border: none;

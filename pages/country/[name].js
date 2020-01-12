@@ -84,7 +84,7 @@ const CountryDetails = ({ countryArray }) => {
           border: none;
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.18);
           background-color: inherit;
-          transition: background-color 1s ease-in-out;
+          transition: background-color 500ms ease-in-out;
           background-color: ${theme === "light"
             ? "#fff"
             : "hsl(209, 23%, 22%)"};

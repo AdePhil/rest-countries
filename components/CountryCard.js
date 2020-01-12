@@ -34,7 +34,7 @@ const CountryCard = ({ country }) => {
             text-decoration: none;
           }
           .country {
-            transition: background-color 1s ease-in-out;
+            transition: background-color 500ms ease-in-out;
             background-color: ${theme === "light"
               ? "#fff"
               : "hsl(209, 23%, 22%)"};

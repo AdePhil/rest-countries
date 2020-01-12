@@ -97,6 +97,7 @@ const CountryDetails = ({ countryArray }) => {
           padding-top: 60px;
           grid-gap: 0 50px;
         }
+
         .label {
           font-weight: 500;
         }
@@ -120,6 +121,24 @@ const CountryDetails = ({ countryArray }) => {
         }
         .details.first {
           grid-column-start: 2;
+        }
+
+        @media (max-width: 1000px) {
+          .country-details-group {
+            grid-template-columns: auto 1fr;
+            grid-gap: 30px 50px;
+          }
+          img {
+            grid-column: 1/-1;
+          }
+
+          .country-name {
+            grid-column-start: 1;
+            margin-bottom: -40px;
+          }
+          .details.first {
+            grid-column-start: 1;
+          }
         }
       `}</style>
     </div>
